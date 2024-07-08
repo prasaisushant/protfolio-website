@@ -35,7 +35,7 @@ body, html {
 .construction-icon {
     font-size: 4em;
     margin-bottom: 0.5em;
-    color: #f1c40f;
+    color: #f1930f;
     animation: bounce 2s infinite; /* Example animation for construction icon */
 }
 
@@ -52,10 +52,7 @@ body, html {
 }
 
 .bulldozer-icon {
-    font-size: 6em;
-    color: #f1c40f;
-    position: relative; /* Change to relative positioning */
-    left: -200px; /* Start position off-screen */
+    width: 150px; /* Adjust the size of the bulldozer icon */
     animation: moveRight 5s infinite linear; /* Animate from left to right */
 }
 
@@ -64,6 +61,6 @@ body, html {
         transform: translateX(-200px);
     }
     100% {
-        transform: translateX(50vw); /* Move to the right edge of the viewport */
+        transform: translateX(45vw); /* Move to the right edge of the viewport */
     }
 }
