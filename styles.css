@@ -5,18 +5,43 @@ body, html {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #282c34;
-    color: white;
     font-family: Arial, sans-serif;
+    overflow: hidden; /* Prevent scrolling */
+    
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Place video behind other content */
+}
+
+.video-background video {
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    object-fit: cover;
 }
 
 .container {
     text-align: center;
     position: relative;
+    z-index: 1; /* Ensure content is above video */
     height: 100vh; /* Ensure full viewport height */
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: white;
 }
 
 .content {
@@ -73,10 +98,11 @@ body, html {
     }
 }
 
-
-
 .animated-text {
     animation: pulsate 2s infinite ease-in-out; /* Pulsating animation */
+}
+.animated-text:hover {
+    color: #f1930f;
 }
 
 @keyframes pulsate {
@@ -90,45 +116,9 @@ body, html {
         transform: scale(1);
     }
 }
-/* #coming-soon-text {
-    background-image: linear-gradient(to right, #ff8a00, #e52e71, #8a2be2);
-    background-size: 200% auto;
-    color: transparent;
-    background-clip: text;
-    animation: gradientShift 5s linear infinite;
-}
-
-@keyframes gradientShift {
-    0% {
-        background-position: 0% center;
-    }
-    100% {
-        background-position: 100% center;
-    }
-}
-
-/*#coming-soon-text {
-    position: relative;
-    animation: slideText 5s linear infinite;
-}
-
-@keyframes slideText {
-    0% {
-        transform: translateX(-20%);
-    }
-    50% {
-        transform: translateX(20%);
-    }
-    51% {
-        transform: translateX(19%);
-    }
-    100% {
-        transform: translateX(-20%);
-    }
-}*/
-
 
 #coming-soon-text {
+    font-size: large;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
     animation: pulseShadow 2s ease-in-out infinite alternate;
 }
@@ -142,10 +132,30 @@ body, html {
     }
 }
 
+.social-icons {
+    margin-top: 1em;
+}
 
+.social-icons a {
+    color: white;
+    margin: 0 10px;
+    font-size: 2em;
+    transition: color 0.3s, transform 0.3s;
+}
 
+.social-icons a:hover {
+    color: #f1930f;
+    animation: pulsateIcon 2s infinite; /* Pulsating animation on hover */
+}
 
-
-
-
-
+@keyframes pulsateIcon {
+    0% {
+        font-size: 2em;
+    }
+    50% {
+        font-size: 3em;
+    }
+    100% {
+        font-size: 2em;
+    }
+}
