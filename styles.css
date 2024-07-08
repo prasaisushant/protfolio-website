@@ -23,6 +23,14 @@ body, html {
     position: relative;
     z-index: 1; /* Ensure content is above animations */
     margin-bottom: 3em; /* Adjust the space below the content */
+    opacity: 0; /* Initially hide content */
+    animation: fadeIn 1s forwards; /* Fade in animation */
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
 }
 
 .animation {
@@ -61,6 +69,83 @@ body, html {
         transform: translateX(-200px);
     }
     100% {
-        transform: translateX(45vw); /* Move to the right edge of the viewport */
+        transform: translateX(40vw); /* Move to the right edge of the viewport */
     }
 }
+
+
+
+.animated-text {
+    animation: pulsate 2s infinite ease-in-out; /* Pulsating animation */
+}
+
+@keyframes pulsate {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.4);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* #coming-soon-text {
+    background-image: linear-gradient(to right, #ff8a00, #e52e71, #8a2be2);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    animation: gradientShift 5s linear infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 100% center;
+    }
+}
+
+/*#coming-soon-text {
+    position: relative;
+    animation: slideText 5s linear infinite;
+}
+
+@keyframes slideText {
+    0% {
+        transform: translateX(-20%);
+    }
+    50% {
+        transform: translateX(20%);
+    }
+    51% {
+        transform: translateX(19%);
+    }
+    100% {
+        transform: translateX(-20%);
+    }
+}*/
+
+
+#coming-soon-text {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    animation: pulseShadow 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseShadow {
+    0% {
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+}
+
+
+
+
+
+
+
+
