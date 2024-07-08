@@ -12,32 +12,31 @@ body, html {
 
 .container {
     text-align: center;
-    animation: float 3s ease-in-out infinite;
+    position: relative;
+    height: 100vh; /* Ensure full viewport height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+.content {
+    position: relative;
+    z-index: 1; /* Ensure content is above animations */
+    margin-bottom: 3em; /* Adjust the space below the content */
 }
 
-.icons {
+.animation {
     display: flex;
     justify-content: center;
-    gap: 1em;
-    margin-bottom: 1em;
-}
-
-.construction-icon, .hammer-icon, .wrench-icon {
-    font-size: 4em;
-    color: #f1c40f;
+    position: relative; /* Ensure positioning context */
+    margin-top: 1em; /* Adjust the space above the animation */
 }
 
 .construction-icon {
-    animation: bounce 2s infinite;
+    font-size: 4em;
+    margin-bottom: 0.5em;
+    color: #f1c40f;
+    animation: bounce 2s infinite; /* Example animation for construction icon */
 }
 
 @keyframes bounce {
@@ -52,38 +51,19 @@ body, html {
     }
 }
 
-.hammer-icon {
-    animation: hammer 2s infinite;
+.bulldozer-icon {
+    font-size: 6em;
+    color: #f1c40f;
+    position: relative; /* Change to relative positioning */
+    left: -200px; /* Start position off-screen */
+    animation: moveRight 5s infinite linear; /* Animate from left to right */
 }
 
-@keyframes hammer {
-    0%, 100% {
-        transform: rotate(0deg);
+@keyframes moveRight {
+    0% {
+        transform: translateX(-200px);
     }
-    50% {
-        transform: rotate(-20deg);
+    100% {
+        transform: translateX(50vw); /* Move to the right edge of the viewport */
     }
-}
-
-.wrench-icon {
-    animation: wrench 2s infinite;
-}
-
-@keyframes wrench {
-    0%, 100% {
-        transform: rotate(0deg);
-    }
-    50% {
-        transform: rotate(20deg);
-    }
-}
-
-h1 {
-    font-size: 3em;
-    margin-bottom: 0.5em;
-}
-
-p {
-    font-size: 1.5em;
-    margin-bottom: 1em;
 }
